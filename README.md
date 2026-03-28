@@ -1,6 +1,8 @@
-# 🏋️ Grit - One-stop for Fitness
+<p align="center">
+  <img src="./assets/hero.png" width="300" />
+</p>
 
-![Grit Hero](./assets/hero.png)
+# 🏋️ Grit - One-stop for Fitness
 
 ## 🌟 Overview
 

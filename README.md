@@ -93,4 +93,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ## ✨ Contributors
-Developed with ❤️ by the Grit Team.
+Developed by sanjeev A

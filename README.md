@@ -12,6 +12,7 @@
   <a href="https://github.com/sa1165/Grit-Fitness/stargazers"><img src="https://img.shields.io/github/stars/sa1165/Grit-Fitness?style=flat-square&color=FFD700" alt="Stars"/></a>
   <a href="https://github.com/sa1165/Grit-Fitness/issues"><img src="https://img.shields.io/github/issues/sa1165/Grit-Fitness?style=flat-square" alt="Issues"/></a>
   <a href="https://github.com/sa1165/Grit-Fitness/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License"/></a>
+  <a href="https://grit-fitness-lands-here.vercel.app/"><img src="https://img.shields.io/badge/live-landing%20page-blueviolet?style=flat-square&logo=vercel" alt="Live Landing Page"/></a>
   <img src="https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey?style=flat-square" alt="Platform"/>
   <img src="https://img.shields.io/badge/built%20with-Expo-000020?style=flat-square&logo=expo" alt="Expo"/>
   <img src="https://img.shields.io/badge/backend-Supabase-3ECF8E?style=flat-square&logo=supabase" alt="Supabase"/>
@@ -42,6 +43,8 @@
 **Grit** is a cross-platform, AI-powered fitness companion built for anyone from gym beginners to elite athletes. It solves the fragmentation problem in fitness apps — users typically juggle separate apps for workout planning, calorie tracking, progress logging, and AI coaching. Grit unifies all of these into a single, cohesive experience.
 
 Built with **React Native (Expo)** for a native feel on both iOS and Android, and powered by **Supabase** for real-time data sync and secure authentication, Grit delivers a premium dark-themed UI with personalized AI guidance, structured workout scheduling, and deep progress analytics.
+
+> 🔗 **Live Landing Page:** Visit the landing page at [grit-fitness-lands-here.vercel.app](https://grit-fitness-lands-here.vercel.app/)
 
 > Built as a flagship portfolio project demonstrating full-stack mobile development, real-time database integration, and applied AI — all shipped in a single production-quality app.
 

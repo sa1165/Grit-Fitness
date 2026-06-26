@@ -22,13 +22,14 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Demo & Screenshots](#demo--screenshots)
+- [Screenshots](#screenshots)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Architecture](#architecture)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
+- [Database Schema](#database-schema)
 - [Results & Metrics](#results--metrics)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -40,30 +41,74 @@
 
 **Grit** is a cross-platform, AI-powered fitness companion built for anyone from gym beginners to elite athletes. It solves the fragmentation problem in fitness apps — users typically juggle separate apps for workout planning, calorie tracking, progress logging, and AI coaching. Grit unifies all of these into a single, cohesive experience.
 
-Built with **React Native (Expo)** for a native feel on both iOS and Android, and powered by **Supabase** for real-time data sync and secure authentication, Grit delivers a premium, dark-themed UI with personalized AI guidance, structured workout scheduling, and deep progress analytics.
+Built with **React Native (Expo)** for a native feel on both iOS and Android, and powered by **Supabase** for real-time data sync and secure authentication, Grit delivers a premium dark-themed UI with personalized AI guidance, structured workout scheduling, and deep progress analytics.
 
-> Built as a flagship portfolio project, demonstrating full-stack mobile development, real-time database integration, and applied AI — all shipped in a single production-quality app.
+> Built as a flagship portfolio project demonstrating full-stack mobile development, real-time database integration, and applied AI — all shipped in a single production-quality app.
 
 ---
 
-## Demo & Screenshots
+## Screenshots
 
-> 📱 **Try it yourself** — scan the QR code below with [Expo Go](https://expo.dev/client) to run Grit on your phone instantly.
+### 🏠 Home & Dashboard
+> Weekly snapshot of workouts, duration, and volume — with a personal greeting and suggested challenges.
 
-<!-- Replace with your actual Expo published QR or link -->
-```
-expo publish link / QR goes here
-```
+<p align="center">
+  <img src="./screenshots/screen_home.png" width="260" alt="Home Dashboard"/>
+</p>
 
-| Home & Dashboard | AI Trainer | Workout Scheduler | Progress Charts |
-|:---:|:---:|:---:|:---:|
-| ![Home](./screenshots/home.png) | ![AI](./screenshots/ai_trainer.png) | ![Scheduler](./screenshots/scheduler.png) | ![Charts](./screenshots/charts.png) |
+---
 
-| Calorie Tracker | Exercise Library | Profile |
-|:---:|:---:|:---:|
-| ![Calories](./screenshots/calories.png) | ![Library](./screenshots/library.png) | ![Profile](./screenshots/profile.png) |
+### 🤖 Grit AI Trainer
+> Always-active AI coach — ask anything about exercises, diet, and recovery.
 
-> 📁 Screenshots are in the [`/screenshots`](./screenshots) folder.
+<p align="center">
+  <img src="./screenshots/screen_ai.png" width="260" alt="Grit AI Trainer"/>
+</p>
+
+---
+
+### 🗓️ Workout Scheduler
+> Calendar-based scheduling — tap any date, pick a workout type and time, and save.
+
+<p align="center">
+  <img src="./screenshots/screen_scheduler.png" width="260" alt="Workout Scheduler"/>
+</p>
+
+---
+
+### 📊 Progress Analytics
+> Volume trend and consistency charts with Week / Month / Year toggle.
+
+<p align="center">
+  <img src="./screenshots/screen_progress.png" width="260" alt="Progress Analytics"/>
+</p>
+
+---
+
+### 🍎 Calorie Counter
+> Daily calorie goal, consumed vs remaining tracker, food logging, and timestamped history.
+
+<p align="center">
+  <img src="./screenshots/screen_calories.png" width="260" alt="Calorie Counter"/>
+</p>
+
+---
+
+### 📋 Exercise Library
+> Searchable library organised by muscle group — each exercise links to a video tutorial.
+
+<p align="center">
+  <img src="./screenshots/screen_library.png" width="260" alt="Exercise Library"/>
+</p>
+
+---
+
+### 👤 Profile
+> User level, Grit Score, fitness goal, and account settings in one clean view.
+
+<p align="center">
+  <img src="./screenshots/screen_profile.png" width="260" alt="Profile"/>
+</p>
 
 ---
 
@@ -71,14 +116,14 @@ expo publish link / QR goes here
 
 | Feature | Description |
 |---|---|
-| 🤖 **Grit AI Trainer** | Personalized workout advice, form corrections, and nutrition coaching — available 24/7 |
-| 📋 **Workout Library** | Pre-built routines + custom workout creation, filterable by muscle group and equipment |
-| 🗓️ **Workout Scheduler** | Calendar-based scheduling with push reminders and streak tracking |
-| 📊 **Progress Analytics** | Interactive charts for weight, body measurements, strength PRs, and workout frequency |
-| 🍎 **Calorie & Macro Tracker** | TDEE calculator, macro breakdown, and daily intake logging |
-| 🔐 **Secure Auth** | Email/password and OAuth login powered by Supabase Auth with RLS policies |
-| 🌙 **Dark-first UI** | Premium dark theme with gradient accents and micro-animations throughout |
-| 📶 **Offline Support** | Core tracking features work without an internet connection *(planned — see Roadmap)* |
+| 🤖 **Grit AI Trainer** | Conversational AI coach for workouts, form, nutrition — available 24/7 |
+| 📋 **Exercise Library** | Searchable library grouped by muscle group, each with video tutorial links |
+| 🗓️ **Workout Scheduler** | Calendar-based scheduling with custom workout type and time entries |
+| 📊 **Progress Analytics** | Volume trend and consistency charts with Week / Month / Year toggle |
+| 🍎 **Calorie Counter** | Daily goal tracking, food logging with timestamps, consumed vs remaining view |
+| 🏆 **Grit Score** | Gamified progress metric that increases as you complete workouts |
+| 🔐 **Secure Auth** | Email/password login with Supabase Auth and per-user Row-Level Security |
+| 🌙 **Dark-first UI** | Premium dark theme with gradient accents, clean typography, micro-animations |
 
 ---
 
@@ -91,10 +136,9 @@ expo publish link / QR goes here
 | **Authentication** | Supabase Auth |
 | **Navigation** | React Navigation v6 |
 | **Data Visualization** | React Native Chart Kit |
-| **State Management** | React Context API + `useState` / `useReducer` |
+| **State Management** | React Context API |
 | **Styling** | React Native StyleSheet (CSS-in-JS) |
 | **Icons** | Expo Vector Icons (Ionicons) |
-| **AI Integration** | *(Planned — OpenAI / Gemini API — see Roadmap)* |
 | **Version Control** | Git + GitHub |
 
 ---
@@ -119,8 +163,8 @@ User Device (iOS / Android)
     └── Realtime           → Live sync across sessions
               │
               ▼
-       AI Trainer Module
-    └── (Currently: rule-based logic → Future: LLM API)
+       Grit AI Module
+    └── Conversational coach (rule-based → Future: LLM API)
 ```
 
 ---
@@ -143,7 +187,7 @@ Grit-Fitness/
 ├── src/
 │   ├── components/           # Reusable UI components
 │   │   ├── common/           # Buttons, Cards, Loaders
-│   │   ├── charts/           # Chart wrappers (weight, reps, etc.)
+│   │   ├── charts/           # Chart wrappers (volume, consistency)
 │   │   └── workout/          # Exercise cards, set trackers
 │   │
 │   ├── screens/              # Full app screens
@@ -163,7 +207,7 @@ Grit-Fitness/
 │   │   └── WorkoutContext.js
 │   │
 │   ├── services/             # Supabase API calls
-│   │   ├── supabase.js       # Client init
+│   │   ├── supabase.js
 │   │   ├── authService.js
 │   │   ├── workoutService.js
 │   │   └── nutritionService.js
@@ -175,10 +219,10 @@ Grit-Fitness/
 │   ├── constants/            # Colors, fonts, theme tokens
 │   │   └── theme.js
 │   │
-│   └── utils/                # TDEE calculator, date helpers, etc.
+│   └── utils/                # TDEE calculator, date helpers
 │       └── calculations.js
 │
-└── docs/                     # Additional documentation
+└── docs/
     └── database-schema.md
 ```
 
@@ -203,15 +247,15 @@ cd Grit-Fitness
 # 2. Install dependencies
 npm install
 
-# 3. Set up environment variables (see section below)
+# 3. Set up environment variables
 cp .env.example .env
-# Fill in your Supabase credentials in .env
+# Fill in your Supabase credentials
 
 # 4. Start the development server
 npx expo start
 
 # 5. Run on your device
-# → Scan the QR code with Expo Go (iOS/Android)
+# → Scan the QR code with Expo Go (iOS / Android)
 # → Press 'a' for Android emulator
 # → Press 'i' for iOS simulator
 ```
@@ -220,14 +264,14 @@ npx expo start
 
 ## Environment Variables
 
-Create a `.env` file in the root directory. Use `.env.example` as a template:
+Create a `.env` file in the root directory using `.env.example` as a template:
 
 ```env
 EXPO_PUBLIC_SUPABASE_URL=your_supabase_project_url
 EXPO_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-To find these values: go to your [Supabase dashboard](https://app.supabase.com) → Project Settings → API.
+Find these values in your [Supabase dashboard](https://app.supabase.com) → Project Settings → API.
 
 > ⚠️ Never commit your `.env` file. It is already listed in `.gitignore`.
 
@@ -235,20 +279,18 @@ To find these values: go to your [Supabase dashboard](https://app.supabase.com) 
 
 ## Database Schema
 
-Key tables in Supabase (PostgreSQL):
-
 | Table | Description |
 |---|---|
-| `users` | Profile data — name, weight, height, goals |
+| `users` | Profile data — name, level, Grit Score, fitness goal |
 | `workouts` | Workout templates with exercise references |
-| `workout_logs` | Completed session records with sets/reps/weight |
-| `exercises` | Exercise library with muscle groups and equipment |
-| `nutrition_logs` | Daily calorie and macro entries |
-| `scheduled_workouts` | Calendar entries linked to workout templates |
+| `workout_logs` | Completed session records with sets / reps / weight |
+| `exercises` | Exercise library with muscle groups and tutorial links |
+| `nutrition_logs` | Daily calorie entries with food name and timestamp |
+| `scheduled_workouts` | Calendar entries linked to workout types and times |
 
-Row-Level Security (RLS) is enabled on all tables — users can only access their own data.
+Row-Level Security (RLS) is enabled on all tables — users can only read and write their own data.
 
-> Full schema diagram available in [`/docs/database-schema.md`](./docs/database-schema.md)
+> Full schema available in [`/docs/database-schema.md`](./docs/database-schema.md)
 
 ---
 
@@ -258,47 +300,45 @@ Row-Level Security (RLS) is enabled on all tables — users can only access thei
 |---|---|
 | Supported platforms | iOS, Android |
 | Avg. screen load time | < 300ms |
-| Supabase auth latency | < 200ms (JWT) |
-| Exercise library size | 80+ exercises |
-| Workout templates | 15+ pre-built routines |
-| Charts rendered | 5 visualization types |
-| Authentication methods | Email/Password, OAuth (Google) |
+| Auth latency (Supabase JWT) | < 200ms |
+| Exercise library size | 80+ exercises across muscle groups |
+| Chart types | Volume trend, consistency bar, weekly/monthly/yearly toggle |
+| Gamification | Grit Score system tied to workout completions |
+| Authentication | Email / Password via Supabase Auth |
 
 ---
 
 ## Roadmap
 
 - [ ] **LLM-powered AI Trainer** — integrate OpenAI / Gemini API for real conversational coaching
-- [ ] **Offline mode** — local SQLite caching with sync on reconnect
+- [ ] **Offline mode** — local SQLite caching with background sync on reconnect
 - [ ] **Apple Health / Google Fit integration** — pull steps and heart rate data
+- [ ] **Push notifications** — workout reminders via Expo Notifications
 - [ ] **Social features** — share workouts, follow friends, leaderboards
 - [ ] **Wearable support** — Apple Watch / Wear OS companion
-- [ ] **CI/CD pipeline** — GitHub Actions for automated testing and Expo EAS builds
-- [ ] **Unit tests** — Jest + React Native Testing Library coverage
-- [ ] **Push notifications** — workout reminders via Expo Notifications
 - [ ] **App Store & Play Store release** — production EAS build
+- [ ] **Unit tests** — Jest + React Native Testing Library
+- [ ] **CI/CD pipeline** — GitHub Actions + Expo EAS automated builds
 
 ---
 
 ## Contributing
 
-Contributions are welcome! Here's how to get started:
+Contributions are welcome!
 
 ```bash
 # 1. Fork the repository
 # 2. Create your feature branch
 git checkout -b feature/your-feature-name
 
-# 3. Commit your changes
-git commit -m "feat: add your feature description"
+# 3. Commit with conventional commits
+git commit -m "feat: describe your change"
 
-# 4. Push to the branch
+# 4. Push and open a Pull Request
 git push origin feature/your-feature-name
-
-# 5. Open a Pull Request
 ```
 
-Please follow [Conventional Commits](https://www.conventionalcommits.org/) for commit messages and check open [Issues](https://github.com/sa1165/Grit-Fitness/issues) before starting new work.
+Please check open [Issues](https://github.com/sa1165/Grit-Fitness/issues) before starting new work and follow [Conventional Commits](https://www.conventionalcommits.org/).
 
 ---
 
@@ -310,8 +350,8 @@ This project is licensed under the **MIT License** — see the [LICENSE](./LICEN
 
 ## Author
 
-**Sanjeev A**
-B.Tech Computer Science (Data Science) — SRMIST Kattankulathur
+**Sanjeev A**  
+B.Tech Computer Science (Data Science) — SRMIST Kattankulatham
 
 [![GitHub](https://img.shields.io/badge/GitHub-sa1165-181717?style=flat-square&logo=github)](https://github.com/sa1165)
 
